@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <title></title>
+</head>
+<style>
+body{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+    
+}
+  .dark{
+    width: 300px;
+    height: 100px;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 60px;
+  background-color:black;
+        animation: Coloor 1s;
+    animation-fill-mode: forwards;
+  }
+  .ball{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    background-color: white;
+    top:12px;
+    left: 14px;
+    animation: Coloor 0.5s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes Color{
+    from{
+      background-color: white;
+    }
+    to{
+      background-color: black;
+    }
+  }
+    @keyframes Colors{
+    from{
+      background-color: black;
+    }
+    to{
+      background-color:white;
+    }
+  }
+  #text{
+    font-size: 70px;
+    color: white;
+    position: absolute;
+    left:130px;
+        animation: Coloor 2s;
+    animation-fill-mode: forwards;
+  }
+  #but{
+    text-align:center;
+  }
+</style>
+<body>
+    <h2 id="butt"style="position: absolute; top:5px;"><span>JEEVA</span>-<span style="color: red;">045</span></h2>
+  <h1 id="but">SIMPLE DARK MODE BUTTON USING JAVASCRIPT</h1>
+<div class="dark" id="dark">
+  <div id="text">
+    OFF
+  </div>
+  <div class="ball" id="ball">
+    
+  </div>
+</div>
+<script>
+  let a=document.getElementById("ball")
+    let b=document.getElementById("dark")
+    let c=document.getElementById("text")
+    let d=document.querySelector("body")
+    let but=document.getElementById("but")
+    let butt=document.getElementById("butt")
+  let i=1;
+  let t=200,l=14;
+  let m=null;
+  clearInterval(m)
+  a.addEventListener("click",run)
+  function run()
+  {
+    t=200,l=14
+    let m=setInterval(man,0.5)
+    function man()
+    {
+      if(i%2==0)
+      {
+        a.style.animationName="Color"
+        b.style.animationName="Colors"
+        c.innerText="ON"
+        c.style.color="black"
+        but.style.color="white"
+        butt.style.color="white"
+        c.style.left="30px"
+        d.style.backgroundColor="black"
+        if(l==200)
+        {
+          clearInterval(m)
+        
+        }
+        else
+        {
+          a.style.left=l+"px"
+          l=l+1;
+        }
+      }
+      else 
+      {
+        c.innerText="OFF"
+        b.style.animationName="Color"
+        a.style.animationName="Colors"
+        c.style.color="white"
+        but.style.color="black"
+        butt.style.color="black"
+        c.style.left="130px"
+        d.style.backgroundColor="white"
+        if(t==14)
+        {
+          clearInterval(m)
+        
+        }
+        else
+        {
+          a.style.left=t+"px"
+          t=t-1;
+        }
+      }
+    }
+    i=i+1;
+  }
+</script>
+</body>
+
+</html>
